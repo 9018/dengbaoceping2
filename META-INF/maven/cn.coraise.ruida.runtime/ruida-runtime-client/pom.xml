@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.coraise.ruida.runtime</groupId>
+        <artifactId>ruida-runtime-custom</artifactId>
+        <version>2.1.0-RHCP-2.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>ruida-runtime-client</artifactId>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.coraise.ruida</groupId>
+            <artifactId>jeecg-system-biz</artifactId>
+            <version>${rhcp.version}</version>
+        </dependency>
+
+        <!-- DATA 数据仓库模块 -->
+        <dependency>
+            <groupId>cn.coraise.ruida</groupId>
+            <artifactId>ruida-data-run</artifactId>
+            <version>${rhcp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.coraise.ruida</groupId>
+            <artifactId>ruida-data-api</artifactId>
+            <version>${rhcp.version}</version>
+        </dependency>
+
+        <!-- DESIGNER 应用设计模块 -->
+        <dependency>
+            <groupId>cn.coraise.ruida</groupId>
+            <artifactId>ruida-designer-run</artifactId>
+            <version>${rhcp.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.coraise.ruida</groupId>
+            <artifactId>ruida-designer-api</artifactId>
+            <version>${rhcp.version}</version>
+        </dependency>
+
+        <!-- INTEGRATOR 集成中心模块 -->
+        <dependency>
+            <groupId>cn.coraise.ruida</groupId>
+            <artifactId>ruida-integrator-run</artifactId>
+            <version>${rhcp.version}</version>
+        </dependency>
+
+        <!-- traceID -->
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-toolkit-logback-1.x</artifactId>
+            <version>9.1.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>${registry.project}/${profile.name}/ruida-rtc-master</name>
+                            <build>
+                                <buildx>
+                                    <platforms>${docker.platforms}</platforms>
+                                </buildx>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/extra-resources</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>../../ruida-module-data/ruida-data-run/src/main/resources</directory>
+                                    <includes>
+                                        <include>**/*.xba</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

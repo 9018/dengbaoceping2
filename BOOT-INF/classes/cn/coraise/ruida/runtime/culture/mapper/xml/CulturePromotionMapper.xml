@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.coraise.ruida.runtime.culture.mapper.CulturePromotionMapper">
+
+    <!-- 列表查询 -->
+    <select id="queryList" resultType="cn.coraise.ruida.runtime.culture.entity.CulturePromotion">
+        SELECT
+            rcp.*,
+            sf.url
+        FROM
+            rd_culture_promotion rcp
+                JOIN sys_files sf ON rcp.picture_id = sf.id
+        where
+            rcp.del_flag = '0'
+          AND rcp.status = 1
+        ORDER BY
+            sort_index
+    </select>
+
+    <!-- 批量插入文化推广数据-->
+    <insert id="insertBatch" parameterType="list">
+        INSERT INTO rd_culture_promotion(id, title, picture_id, website, status, del_flag, sort_index, create_by, create_time, update_by, update_time, version)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.id }, #{item.title},
+            #{item.pictureId}, #{item.website},
+            #{item.status}, #{item.delFlag},#{item.sortIndex},
+            #{item.createBy},#{item.createTime},
+            #{item.updateBy},#{item.updateTime},#{item.version}
+            )
+        </foreach>
+        on duplicate key update
+        title = VALUES(title), picture_id = VALUES(picture_id), website = VALUES(website),
+        status = VALUES(status), del_flag = VALUES(del_flag),sort_index = VALUES(sort_index),
+        create_by = VALUES(create_by), create_time = VALUES(create_time),
+        update_by = VALUES(update_by), update_time = VALUES(update_time), version = VALUES(version)
+    </insert>
+
+</mapper>

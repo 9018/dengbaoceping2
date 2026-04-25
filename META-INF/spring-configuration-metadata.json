@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "rhcp.client.base",
+      "type": "cn.coraise.ruida.runtime.autoconfig.RtcRhcpProperties",
+      "sourceType": "cn.coraise.ruida.runtime.autoconfig.RtcRhcpProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

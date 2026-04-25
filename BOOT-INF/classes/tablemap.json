@@ -1,0 +1,308 @@
+[
+  {
+    "tableName": "oa_archived_log",
+    "type": "I",
+    "typeColumn": "pro_id",
+    "order": "1",
+    "importTable": [
+      {
+        "tableName": "db_archived_log",
+        "field": "pro_id",
+        "order": "create_time",
+        "orderType": "1",
+        "needNumber": "1",
+        "isMaster": "master"
+      }
+    ],
+    "fieldMap": [
+      {
+        "column": "pro_id",
+        "value": "db_archived_log.pro_id"
+      },
+      {
+        "column": "archived_id",
+        "value": "db_archived_log.id"
+      },
+      {
+        "column": "batchno",
+        "value": "value.${batchno}"
+      },
+      {
+        "column": "type",
+        "value": "value.${offline}"
+      },
+      {
+        "column": "file_name",
+        "value": "db_archived_log.file_name"
+      },
+      {
+        "column": "file_url",
+        "value": "db_archived_log.file_url"
+      },
+      {
+        "column": "file_crttime",
+        "value": "value.${createTime}"
+      },
+      {
+        "column": "submit_time",
+        "value": "db_archived_log.create_time"
+      },
+      {
+        "column": "submitter",
+        "value": "value.${realName}"
+      }
+    ]
+  },
+  {
+    "tableName": "oa_project",
+    "type": "U-I",
+    "typeColumn": "pro_id",
+    "order": "2",
+    "importTable": [
+      {
+        "tableName": "db_project_info",
+        "field": "id",
+        "order": "create_time",
+        "orderType": "1",
+        "needNumber": "1",
+        "isMaster": "master"
+      },
+      {
+        "tableName": "oa_archived_log",
+        "field": "pro_id",
+        "order": "create_time",
+        "orderType": "1",
+        "needNumber": "1",
+        "isMaster": "no"
+      }
+    ],
+    "fieldMap": [
+      {
+        "column": "pro_id",
+        "value": "db_project_info.id"
+      },
+      {
+        "column": "projnum",
+        "value": "db_project_info.pro_num"
+      },
+      {
+        "column": "projname",
+        "value": "db_project_info.pro_name"
+      },
+      {
+        "column": "sysname",
+        "value": "db_project_info.sys_name"
+      },
+      {
+        "column": "evalleaderacct",
+        "value": "db_project_info.leader_no"
+      },
+      {
+        "column": "evalleadername",
+        "value": "db_project_info.leader_name"
+      },
+      {
+        "column": "testunit",
+        "value": "db_project_info.test_unit"
+      },
+      {
+        "column": "unit",
+        "value": "db_project_info.evaluation_unit"
+      },
+      {
+        "column": "dept",
+        "value": "db_project_info.department"
+      },
+      {
+        "column": "member",
+        "value": "db_project_info.team_name"
+      },
+      {
+        "column": "stdname",
+        "value": "db_project_info.standard"
+      },
+      {
+        "column": "sag",
+        "value": "db_project_info.sag"
+      },
+      {
+        "column": "grade",
+        "value": "db_project_info.level_value"
+      },
+      {
+        "column": "grade_sag",
+        "value": "db_project_info.level_value",
+        "type": "code"
+      },
+      {
+        "column": "tools",
+        "value": "const.1"
+      },
+      {
+        "column": "standard_version",
+        "value": "db_project_info.standard_version"
+      },
+      {
+        "column": "version_no",
+        "value": "db_project_info.book_version"
+      },
+      {
+        "column": "score",
+        "value": "db_project_info.total_score"
+      },
+      {
+        "column": "js_score",
+        "value": "db_project_info.js_score"
+      },
+      {
+        "column": "gl_score",
+        "value": "db_project_info.gl_score"
+      },
+      {
+        "column": "batchno",
+        "value": "oa_archived_log.batchno"
+      },
+      {
+        "column": "status",
+        "value": "const.0"
+      }
+    ]
+  },
+  {
+    "tableName": "oa_archived_files",
+    "type": "I",
+    "typeColumn": "pro_id",
+    "order": "3",
+    "importTable": [
+      {
+        "tableName": "db_archived_files",
+        "field": "pro_id",
+        "order": "create_time",
+        "orderType": "1",
+        "needNumber": "list",
+        "isMaster": "master"
+      },
+      {
+        "tableName": "oa_archived_log",
+        "field": "pro_id",
+        "order": "create_time",
+        "orderType": "1",
+        "needNumber": "1",
+        "isMaster": "no"
+      }
+    ],
+    "fieldMap": [
+      {
+        "column": "batchno",
+        "value": "oa_archived_log.batchno"
+      },
+      {
+        "column": "pro_id",
+        "value": "oa_archived_log.pro_id"
+      },
+      {
+        "column": "log_id",
+        "value": "oa_archived_log.id"
+      },
+      {
+        "column": "archived_id",
+        "value": "oa_archived_log.archived_id"
+      },
+      {
+        "column": "file_id",
+        "value": "db_archived_files.id"
+      },
+      {
+        "column": "file_type",
+        "value": "db_archived_files.file_type",
+        "type": "string"
+      },
+      {
+        "column": "filename",
+        "value": "db_archived_files.file_name"
+      },
+      {
+        "column": "file_url",
+        "value": "db_archived_files.file_url"
+      },
+      {
+        "column": "extension",
+        "value": "db_archived_files.file_url",
+        "type": "code"
+      },
+      {
+        "column": "file_crttime",
+        "value": "db_archived_files.create_time"
+      },
+      {
+        "column": "pstatus",
+        "value": "const.0"
+      }
+    ]
+  },
+  {
+    "tableName": "oa_project_collect",
+    "type": "D-I",
+    "typeColumn": "pro_id",
+    "order": "4",
+    "importTable": [
+      {
+        "tableName": "oa_project",
+        "field": "pro_id",
+        "order": "create_time",
+        "orderType": "1",
+        "needNumber": "1",
+        "isMaster": "master"
+      },
+      {
+        "tableName": "db_project_info",
+        "field": "id",
+        "order": "create_time",
+        "orderType": "1",
+        "needNumber": "1",
+        "isMaster": "no"
+      },
+      {
+        "tableName": "db_project_tatistics_info",
+        "field": "pro_id",
+        "order": "create_time",
+        "orderType": "1",
+        "needNumber": "1",
+        "isMaster": "no"
+      }
+    ],
+    "fieldMap": [
+      {
+        "column": "pro_id",
+        "value": "oa_project.pro_id"
+      },
+      {
+        "column": "score",
+        "value": "db_project_info.total_score"
+      },
+      {
+        "column": "indicator0",
+        "value": "db_project_tatistics_info.fhl",
+        "type": "code"
+      },
+      {
+        "column": "indicator1",
+        "value": "db_project_tatistics_info.bffhl",
+        "type": "code"
+      },
+      {
+        "column": "indicator2",
+        "value": "db_project_tatistics_info.bfhl",
+        "type": "code"
+      },
+      {
+        "column": "inadaptnum",
+        "value": "db_project_tatistics_info.bsy"
+      },
+      {
+        "column": "testresult",
+        "value": "db_project_tatistics_info.conclusion"
+      }
+    ]
+  }
+]
