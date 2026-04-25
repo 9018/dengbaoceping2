@@ -1,0 +1,1 @@
+import{G as s,H as c,c as e,f as o,h as a,M as r,N as l}from"./index-184abb5d.js";const _={};function f(i,p){const n=c("RouterView");return e(),o(n,null,{default:a(({Component:t})=>[(e(),o(r,null,[(e(),o(l(t)))],1024))]),_:1})}const m=s(_,[["render",f]]);export{m as default};

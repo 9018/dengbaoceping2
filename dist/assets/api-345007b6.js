@@ -1,0 +1,1 @@
+import{bf as s}from"./index-184abb5d.js";const n=()=>s.get({url:"/sys/permission/list"}),o=(e,t)=>{const r=t?"/sys/permission/edit":"/sys/permission/add";return s.post({url:r,params:e})},d=({id:e})=>s.delete({url:`/sys/permission/delete?id=${e}`}),u=()=>s.get({url:"/sys/menu-permission/queryList"});export{u as a,o as b,d,n as g};

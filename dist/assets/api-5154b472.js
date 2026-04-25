@@ -1,0 +1,1 @@
+import{bf as a}from"./index-184abb5d.js";const s=t=>a.get({url:"/sys/dataSource",params:t}),o=t=>a.post({url:"/sys/dataSource",params:t}),u=t=>a.put({url:"/sys/dataSource",params:t}),c=(t,e)=>a.delete({url:"/sys/dataSource",params:t},{joinParamsToUrl:!0}).then(()=>{e()});export{o as a,c as b,u as e,s as g};

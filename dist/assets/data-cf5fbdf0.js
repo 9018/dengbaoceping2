@@ -1,0 +1,1 @@
+var e=(t=>(t.SERVICE="service",t.EMPLOYEE="6",t.ROLE="1",t.DIRECTOR="2",t.DEPART="16",t))(e||{});const r=[{title:"源头",dataIndex:"source",editRow:!0,width:100},{title:"表达式",dataIndex:"sourceExpression",editRow:!0,width:120},{title:"目标",dataIndex:"target",editRow:!0,width:100}];export{e as A,r as c};

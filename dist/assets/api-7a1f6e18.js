@@ -1,0 +1,1 @@
+import{bf as r}from"./index-184abb5d.js";const a=()=>r.get({url:"/sys/license/migrate/app"}),o=t=>r.post({url:"/model/pull/npullPlatformModelSync",params:t},{joinParamsToUrl:!0}),u=t=>r.get({url:"/app/queryAppCurrentVersion",params:t},{joinParamsToUrl:!0}),p=t=>r.get({url:"/app/queryAppUpdateDataStatus",params:t},{joinParamsToUrl:!0});export{u as a,a as b,p as g,o as u};

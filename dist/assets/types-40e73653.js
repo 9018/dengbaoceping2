@@ -1,0 +1,1 @@
+var r=(e=>(e.CREATE_TABLE="createTable",e.DELETE_TABLE="deleteTable",e.CREATE_PAGE="createPage",e.IMPORT_MODEL="importModel",e.EXPORT_MODEL="exportModel",e.SYNC_MODEL="syncModel",e.TRANSFORM_OPTION="transformOption",e))(r||{});export{r as M};

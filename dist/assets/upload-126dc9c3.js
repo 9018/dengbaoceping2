@@ -1,0 +1,1 @@
+import{fb as a,bf as l}from"./index-184abb5d.js";const{uploadUrl:p=""}=a(),s="/upload/sys/common/upload";function t(o,u){return l.uploadFile({url:p,onUploadProgress:u},o)}function d(o,u){return l.uploadFile({url:"/upload/sys/common/upload",onUploadProgress:u},o)}export{d as a,s as b,t as u};

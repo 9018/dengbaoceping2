@@ -1,0 +1,1 @@
+import{fb as i}from"./index-184abb5d.js";var c=(t=>(t.ALL="all",t.IMAGE="image",t.FILE="file",t))(c||{}),A=(t=>(t.CIRCLE="circle",t.SQUARE="square",t))(A||{});const{uploadUrl:g=""}=i(),h=(t,a="http")=>{let r=t;try{if(t&&t.length>0&&!t.startsWith(a)&&!(t.indexOf("[")!=-1)){let s=`${g}`;t.startsWith(s)||(r=`${s}${t}`)}}catch(e){}return r};export{A as U,c as a,h as g};

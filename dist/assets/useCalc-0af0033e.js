@@ -1,0 +1,1 @@
+import{at as l,r as o,s as u}from"./index-184abb5d.js";const H=()=>{const{getShowMenu:t}=l(),c=48,s=o(0),n=u(()=>window.document.documentElement.clientHeight-s.value-(t.value?0:-c));return{calcHeight:({calcOffset:e=0})=>`calc(100vh - ${e+(t.value?0:-c)}px)`,setOutsideTableOffset:e=>{s.value=e},table_scroll_x:n}};export{H as u};

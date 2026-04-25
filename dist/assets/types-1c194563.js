@@ -1,0 +1,1 @@
+const T="ant-design:code-sandbox-outlined";var s=(e=>(e.COPY="copy",e.DELETE="delete",e.EDIT="edit",e.PUBLISH_SETTING="publishSetting",e.PUBLISH="publish",e.DETAIL="detail",e.MENU="menu",e.STATUS="status",e))(s||{});export{s as A,T as d};

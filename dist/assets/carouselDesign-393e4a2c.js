@@ -1,0 +1,1 @@
+import{C as e}from"./index-e78a6301.js";import{bd as o}from"./index-184abb5d.js";const t={label:"走马灯名称",imgUrl:"",link:"",target:"_blank"},l={label:"走马灯容器",key:"",component:e.CAROUSEL,columns:[o(t),o(t)],config:{autoplay:!1,dotPosition:"bottom",dots:!0,height:160,margin:{top:0,right:0,bottom:0,left:0}}};export{t as a,l as c};
